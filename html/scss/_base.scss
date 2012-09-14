@@ -4,6 +4,9 @@
 @import 'compass/typography/text/replacement';
 @import 'mixins';
 
+$default-transition-function: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+$default-transition-duration: 250ms;
+
 // Grid
 
 $num-columns: 12;

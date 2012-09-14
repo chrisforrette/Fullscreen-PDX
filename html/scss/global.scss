@@ -20,7 +20,7 @@ a {
     text-decoration: none;
     
     &:hover {
-        color: $dark-grey;
+        color: $blue;
     }
 }
 
@@ -47,6 +47,11 @@ HEADER
     @extend .clearfix;
     position: relative;
     
+    .logo,
+    .logo-mini {
+        margin: 0 auto;
+    }
+    
     .next-event,
     .twitter {
         position: absolute;
@@ -58,7 +63,6 @@ HEADER
     .next-event {
         left: 0;
         em {
-            display: block;
             font-weight: bold;
         }
     }
@@ -68,20 +72,24 @@ HEADER
     }
 }
 
-h1.logo {
+.logo {
     @include replace-text-with-dimensions('global/logo.png');
+}
+
+.logo-mini {
+    @include replace-text-with-dimensions('global/logo-mini.png');
 }
 
 header.global {
     @extend .clearfix;
     padding: 40px 0;
     
-    h1.logo {
-        margin: 0 auto;
-    }
-    
     .logo-row {
         margin-bottom: 56px;
+        
+        em {
+            display: block;
+        }
     }
 }
 
@@ -176,5 +184,24 @@ SPONSORS
     
     p {
         line-height: 1.5em;
+    }
+}
+
+/*
+----------------------------------------------------
+FOOTER
+----------------------------------------------------
+*/
+
+footer.global {
+    padding: 35px 0;
+    
+    .logo-row {
+        margin-bottom: 50px;
+    }
+    
+    .credits {
+        font-size: 0.9em;
+        text-align: center;
     }
 }

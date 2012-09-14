@@ -235,16 +235,16 @@ body {
 
 /* line 17, ../scss/global.scss */
 a {
-  -webkit-transition: color 1s;
-  -moz-transition: color 1s;
-  -o-transition: color 1s;
-  transition: color 1s;
+  -webkit-transition: color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -moz-transition: color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-transition: color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
   color: #666666;
   text-decoration: none;
 }
 /* line 22, ../scss/global.scss */
 a:hover {
-  color: #333333;
+  color: #25aae1;
 }
 
 /*
@@ -283,6 +283,11 @@ HEADER
   position: relative;
 }
 /* line 51, ../scss/global.scss */
+.logo-row .logo,
+.logo-row .logo-mini {
+  margin: 0 auto;
+}
+/* line 56, ../scss/global.scss */
 .logo-row .next-event,
 .logo-row .twitter {
   position: absolute;
@@ -290,22 +295,21 @@ HEADER
   margin-top: -0.5em;
   top: 50%;
 }
-/* line 58, ../scss/global.scss */
+/* line 63, ../scss/global.scss */
 .logo-row .next-event {
   left: 0;
 }
-/* line 60, ../scss/global.scss */
+/* line 65, ../scss/global.scss */
 .logo-row .next-event em {
-  display: block;
   font-weight: bold;
 }
-/* line 66, ../scss/global.scss */
+/* line 70, ../scss/global.scss */
 .logo-row .twitter {
   right: 0;
 }
 
-/* line 71, ../scss/global.scss */
-h1.logo {
+/* line 75, ../scss/global.scss */
+.logo {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
@@ -316,30 +320,42 @@ h1.logo {
   height: 75px;
 }
 
-/* line 75, ../scss/global.scss */
+/* line 79, ../scss/global.scss */
+.logo-mini {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  background-image: url('/images/global/logo-mini.png?1347581127');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 41px;
+  height: 41px;
+}
+
+/* line 83, ../scss/global.scss */
 header.global {
   padding: 40px 0;
 }
-/* line 79, ../scss/global.scss */
-header.global h1.logo {
-  margin: 0 auto;
-}
-/* line 83, ../scss/global.scss */
+/* line 87, ../scss/global.scss */
 header.global .logo-row {
   margin-bottom: 56px;
 }
+/* line 90, ../scss/global.scss */
+header.global .logo-row em {
+  display: block;
+}
 
-/* line 88, ../scss/global.scss */
+/* line 96, ../scss/global.scss */
 .intro {
   text-align: center;
 }
-/* line 92, ../scss/global.scss */
+/* line 100, ../scss/global.scss */
 .intro h2 {
   font-size: 2.85em;
   line-height: 1.4em;
   font-family: "Open Sans Condensed", Arial, sans-serif;
 }
-/* line 99, ../scss/global.scss */
+/* line 107, ../scss/global.scss */
 .intro h3.am,
 .intro h3.pm {
   -webkit-border-radius: 2px;
@@ -358,7 +374,7 @@ header.global .logo-row {
   padding: 116px 34px 20px;
   width: 150px;
 }
-/* line 114, ../scss/global.scss */
+/* line 122, ../scss/global.scss */
 .intro h3.am small,
 .intro h3.pm small {
   display: block;
@@ -366,13 +382,13 @@ header.global .logo-row {
   font-weight: normal;
   padding-top: 0.8em;
 }
-/* line 122, ../scss/global.scss */
+/* line 130, ../scss/global.scss */
 .intro h3.am {
   background-image: url("/images/global/logo-am.png");
   float: left;
   margin-right: 40px;
 }
-/* line 128, ../scss/global.scss */
+/* line 136, ../scss/global.scss */
 .intro h3.pm {
   background-image: url("/images/global/logo-pm.png");
   float: right;
@@ -384,7 +400,7 @@ header.global .logo-row {
 TIMELINE
 ----------------------------------------------------
 */
-/* line 141, ../scss/global.scss */
+/* line 149, ../scss/global.scss */
 .timeline {
   background: url("/images/background/crosshatch.gif") 50% 50% repeat;
   border-bottom: 1px solid #d7d7d7;
@@ -397,22 +413,22 @@ TIMELINE
 SPONSORS
 ----------------------------------------------------
 */
-/* line 154, ../scss/global.scss */
+/* line 162, ../scss/global.scss */
 .sponsors {
   border-bottom: 1px solid #d7d7d7;
   padding: 86px 0 76px;
 }
-/* line 159, ../scss/global.scss */
+/* line 167, ../scss/global.scss */
 .sponsors h4 {
   font-style: italic;
   font-weight: bold;
   margin-bottom: 1.8em;
 }
-/* line 165, ../scss/global.scss */
+/* line 173, ../scss/global.scss */
 .sponsors h5 {
   margin-bottom: 20px;
 }
-/* line 169, ../scss/global.scss */
+/* line 177, ../scss/global.scss */
 .sponsors .instrument {
   text-indent: -119988px;
   overflow: hidden;
@@ -423,7 +439,7 @@ SPONSORS
   width: 144px;
   height: 21px;
 }
-/* line 173, ../scss/global.scss */
+/* line 181, ../scss/global.scss */
 .sponsors .scribble-tone {
   text-indent: -119988px;
   overflow: hidden;
@@ -434,7 +450,26 @@ SPONSORS
   width: 122px;
   height: 23px;
 }
-/* line 177, ../scss/global.scss */
+/* line 185, ../scss/global.scss */
 .sponsors p {
   line-height: 1.5em;
+}
+
+/*
+----------------------------------------------------
+FOOTER
+----------------------------------------------------
+*/
+/* line 196, ../scss/global.scss */
+footer.global {
+  padding: 35px 0;
+}
+/* line 199, ../scss/global.scss */
+footer.global .logo-row {
+  margin-bottom: 50px;
+}
+/* line 203, ../scss/global.scss */
+footer.global .credits {
+  font-size: 0.9em;
+  text-align: center;
 }
