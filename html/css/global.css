@@ -1,146 +1,440 @@
+/* line 17, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 17, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 6, ../scss/_mixins.scss */
+.row,
+.master-column {
+  *zoom: 1;
+}
+/* line 38, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.row:after,
+.master-column:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 10, ../scss/_mixins.scss */
+.col {
+  float: left;
+}
+
+/* line 14, ../scss/_mixins.scss */
+.col + .col {
+  margin-left: 20px;
+}
+
+/* line 18, ../scss/_mixins.scss */
+.master-column {
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 940px;
+}
+
+/* line 25, ../scss/_mixins.scss */
+.span1 {
+  width: 60px;
+}
+
+/* line 25, ../scss/_mixins.scss */
+.span2 {
+  width: 140px;
+}
+
+/* line 25, ../scss/_mixins.scss */
+.span3, .intro h3.am,
+.intro h3.pm {
+  width: 220px;
+}
+
+/* line 25, ../scss/_mixins.scss */
+.span4 {
+  width: 300px;
+}
+
+/* line 25, ../scss/_mixins.scss */
+.span5 {
+  width: 380px;
+}
+
+/* line 25, ../scss/_mixins.scss */
+.span6 {
+  width: 460px;
+}
+
+/* line 25, ../scss/_mixins.scss */
+.span7 {
+  width: 540px;
+}
+
+/* line 25, ../scss/_mixins.scss */
+.span8 {
+  width: 620px;
+}
+
+/* line 25, ../scss/_mixins.scss */
+.span9 {
+  width: 700px;
+}
+
+/* line 25, ../scss/_mixins.scss */
+.span10 {
+  width: 780px;
+}
+
+/* line 25, ../scss/_mixins.scss */
+.span11 {
+  width: 860px;
+}
+
+/* line 25, ../scss/_mixins.scss */
+.span12 {
+  width: 940px;
+}
+
 /*
 ----------------------------------------------------
-HTML5 ✰ Reset
+HTML
 ----------------------------------------------------
 */
-
-html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
-blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd,
-q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-}
-
-article, aside, figure, footer, header, hgroup, nav, section { display: block; }
-object, embed { max-width: 100%; }
-
-/* force a vertical scrollbar to prevent a jumpy page */
-html { overflow-y: scroll; }
-
-ul, ol, nav ul, nav ol {
-    list-style: none;
-    list-style-image: none;
-}
-
-::-moz-selection { background: #D5D4D2; color: #fff; text-shadow: none; }
-::selection { background: #D5D4D2; color: #fff; text-shadow: none; }
-
-blockquote, q { quotes: none; }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after { content: ''; content: none; }
-
-a {
-    margin: 0;
-    padding: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-}
-
-a:hover, a:active, a:focus {
-    outline: none;
-}
-
-del { text-decoration: line-through; }
-abbr[title], dfn[title] { border-bottom: 1px dotted #000; cursor: help; }
-
-table { border-collapse: collapse; border-spacing: 0; font-size: inherit; font: 100%; }
-th { font-weight: bold; vertical-align: bottom; }
-td { font-weight: normal; vertical-align: top; }
-td, td img { vertical-align: top; }
-
-hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
-
-pre {
-    white-space: pre; /* CSS2 */
-    white-space: pre-wrap; /* CSS 2.1 */
-    white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
-    word-wrap: break-word; /* IE */
-}
-
-small { font-size: 85%; }
-strong, th { font-weight: bold; }
-
-sub, sup { font-size: 75%; line-height: 0; position: relative; }
-sup { top: -0.5em; }
-sub { bottom: -0.25em; }
-
-pre, code, kbd, samp {font-family: monospace, sans-serif;}
-
-.clickable,
-label,
-input[type=button],
-input[type=submit],
-button { cursor: pointer; }
-
-button, input, select, textarea { margin: 0; padding: 0; }
-input, select { vertical-align: middle; }
-
-input[type="radio"] { vertical-align: text-bottom; }
-input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
-input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
-input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
-
-.ie6 input { vertical-align: text-bottom; }
-button { width: auto; overflow: visible; }
-button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
-
-.ie7 img { -ms-interpolation-mode: bicubic; }
-.ie6 html { filter: expression(document.execCommand("BackgroundImageCache", false, true)); }
-
-:focus { outline: 0; }
-
-.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
-.clearfix:after { clear: both; }
-.clearfix { zoom: 1; }
-
-
-/*
-----------------------------------------------------
-GLOBALS
-----------------------------------------------------
-*/
-
+/* line 9, ../scss/global.scss */
 body {
-    font: 12px/120% Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  color: #666666;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4em;
 }
 
+/* line 17, ../scss/global.scss */
+a {
+  -webkit-transition: color 1s;
+  -moz-transition: color 1s;
+  -o-transition: color 1s;
+  transition: color 1s;
+  color: #666666;
+  text-decoration: none;
+}
+/* line 22, ../scss/global.scss */
+a:hover {
+  color: #333333;
+}
 
 /*
 ----------------------------------------------------
-LAYOUT
+GLOBAL
 ----------------------------------------------------
 */
+/* line 33, ../scss/global.scss */
+.clearfix, .logo-row, header.global, .intro, .sponsors {
+  *zoom: 1;
+}
+/* line 38, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.clearfix:after, .logo-row:after, header.global:after, .intro:after, .sponsors:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 37, ../scss/global.scss */
+em.am {
+  color: #fcb040;
+}
+
+/* line 38, ../scss/global.scss */
+em.pm {
+  color: #25aae1;
+}
 
 /*
 ----------------------------------------------------
-GLOBAL MODULES
+HEADER
 ----------------------------------------------------
 */
+/* line 46, ../scss/global.scss */
+.logo-row {
+  position: relative;
+}
+/* line 51, ../scss/global.scss */
+.logo-row .next-event,
+.logo-row .twitter {
+  position: absolute;
+  font-style: italic;
+  margin-top: -0.5em;
+  top: 50%;
+}
+/* line 58, ../scss/global.scss */
+.logo-row .next-event {
+  left: 0;
+}
+/* line 60, ../scss/global.scss */
+.logo-row .next-event em {
+  display: block;
+  font-weight: bold;
+}
+/* line 66, ../scss/global.scss */
+.logo-row .twitter {
+  right: 0;
+}
+
+/* line 71, ../scss/global.scss */
+h1.logo {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  background-image: url('/images/global/logo.png?1347579556');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 75px;
+  height: 75px;
+}
+
+/* line 75, ../scss/global.scss */
+header.global {
+  padding: 40px 0;
+}
+/* line 79, ../scss/global.scss */
+header.global h1.logo {
+  margin: 0 auto;
+}
+/* line 83, ../scss/global.scss */
+header.global .logo-row {
+  margin-bottom: 56px;
+}
+
+/* line 88, ../scss/global.scss */
+.intro {
+  text-align: center;
+}
+/* line 92, ../scss/global.scss */
+.intro h2 {
+  font-size: 2.85em;
+  line-height: 1.4em;
+  font-family: "Open Sans Condensed", Arial, sans-serif;
+}
+/* line 99, ../scss/global.scss */
+.intro h3.am,
+.intro h3.pm {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  background-position: 50% 40px;
+  background-repeat: no-repeat;
+  border: 1px solid #e9e9e9;
+  font-size: 1.5em;
+  font-weight: bold;
+  height: 80px;
+  margin-bottom: 0.85em;
+  margin-top: 15px;
+  padding: 116px 34px 20px;
+  width: 150px;
+}
+/* line 114, ../scss/global.scss */
+.intro h3.am small,
+.intro h3.pm small {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  padding-top: 0.8em;
+}
+/* line 122, ../scss/global.scss */
+.intro h3.am {
+  background-image: url("/images/global/logo-am.png");
+  float: left;
+  margin-right: 40px;
+}
+/* line 128, ../scss/global.scss */
+.intro h3.pm {
+  background-image: url("/images/global/logo-pm.png");
+  float: right;
+  margin-left: 40px;
+}
 
 /*
 ----------------------------------------------------
-GLOBAL HEADER
+TIMELINE
 ----------------------------------------------------
 */
+/* line 141, ../scss/global.scss */
+.timeline {
+  background: url("/images/background/crosshatch.gif") 50% 50% repeat;
+  border-bottom: 1px solid #d7d7d7;
+  border-top: 1px solid #d7d7d7;
+  padding: 55px 0;
+}
 
 /*
 ----------------------------------------------------
-GLOBAL FOOTER
+SPONSORS
 ----------------------------------------------------
 */
-
-/*
-----------------------------------------------------
-PAGE-SPECIFIC...
-----------------------------------------------------
-*/
+/* line 154, ../scss/global.scss */
+.sponsors {
+  border-bottom: 1px solid #d7d7d7;
+  padding: 86px 0 76px;
+}
+/* line 159, ../scss/global.scss */
+.sponsors h4 {
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 1.8em;
+}
+/* line 165, ../scss/global.scss */
+.sponsors h5 {
+  margin-bottom: 20px;
+}
+/* line 169, ../scss/global.scss */
+.sponsors .instrument {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  background-image: url('/images/global/logo-instrument.png?1347580790');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 144px;
+  height: 21px;
+}
+/* line 173, ../scss/global.scss */
+.sponsors .scribble-tone {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  background-image: url('/images/global/logo-scribble-tone.gif?1347580712');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 122px;
+  height: 23px;
+}
+/* line 177, ../scss/global.scss */
+.sponsors p {
+  line-height: 1.5em;
+}

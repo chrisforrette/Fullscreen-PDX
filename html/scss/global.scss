@@ -1,1 +1,180 @@
 @import 'base';
+
+/*
+----------------------------------------------------
+HTML
+----------------------------------------------------
+*/
+
+body {
+    background-color: #fff;
+    color: $grey;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.4em;
+}
+
+a {
+    @include single-transition(color);
+    color: $grey;
+    text-decoration: none;
+    
+    &:hover {
+        color: $dark-grey;
+    }
+}
+
+/*
+----------------------------------------------------
+GLOBAL
+----------------------------------------------------
+*/
+
+.clearfix {
+    @include pie-clearfix;
+}
+
+em.am { color: $yellow; }
+em.pm { color: $blue; }
+
+/*
+----------------------------------------------------
+HEADER
+----------------------------------------------------
+*/
+
+.logo-row {
+    @extend .clearfix;
+    position: relative;
+    
+    .next-event,
+    .twitter {
+        position: absolute;
+        font-style: italic;
+        margin-top: -0.5em;
+        top: 50%;
+    }
+    
+    .next-event {
+        left: 0;
+        em {
+            display: block;
+            font-weight: bold;
+        }
+    }
+    
+    .twitter {
+        right: 0;
+    }
+}
+
+h1.logo {
+    @include replace-text-with-dimensions('global/logo.png');
+}
+
+header.global {
+    @extend .clearfix;
+    padding: 40px 0;
+    
+    h1.logo {
+        margin: 0 auto;
+    }
+    
+    .logo-row {
+        margin-bottom: 56px;
+    }
+}
+
+.intro {
+    @extend .clearfix;
+    text-align: center;
+    
+    h2 {
+        font-size: 2.85em;
+        line-height: 1.4em;
+        font-family: $open-sans-condensed;
+    }
+    
+    h3.am,
+    h3.pm {
+        // 218 x 215
+        @extend .span3;
+        @include border-radius(2px);
+        background-position: 50% 40px;
+        background-repeat: no-repeat;
+        border: 1px solid $lightest-grey;
+        font-size: 1.5em;
+        font-weight: bold;
+        height: 80px;
+        margin-bottom: 0.85em;
+        margin-top: 15px;
+        padding: 116px 34px 20px;
+        width: 150px;
+        
+        small {
+            display: block;
+            font-size: 12px;
+            font-weight: normal;
+            padding-top: 0.8em;
+        }
+    }
+    
+    h3.am {
+        background-image: url('/images/global/logo-am.png');
+        float: left;
+        margin-right: $gutter-width * 2;
+    }
+    
+    h3.pm {
+        background-image: url('/images/global/logo-pm.png');
+        float: right;
+        margin-left: $gutter-width * 2;
+    }
+}
+
+/*
+----------------------------------------------------
+TIMELINE
+----------------------------------------------------
+*/
+
+.timeline {
+    background: url('/images/background/crosshatch.gif') 50% 50% repeat;
+    border-bottom: 1px solid $light-grey;
+    border-top: 1px solid $light-grey;
+    padding: 55px 0;
+}
+
+/*
+----------------------------------------------------
+SPONSORS
+----------------------------------------------------
+*/
+
+.sponsors {
+    @extend .clearfix;
+    border-bottom: 1px solid $light-grey;
+    padding: 86px 0 76px;
+    
+    h4 {
+        font-style: italic;
+        font-weight: bold;
+        margin-bottom: 1.8em;
+    }
+    
+    h5 {
+        margin-bottom: 20px;
+    }
+    
+    .instrument {
+        @include replace-text-with-dimensions('global/logo-instrument.png');
+    }
+    
+    .scribble-tone {
+        @include replace-text-with-dimensions('global/logo-scribble-tone.gif');
+    }
+    
+    p {
+        line-height: 1.5em;
+    }
+}
