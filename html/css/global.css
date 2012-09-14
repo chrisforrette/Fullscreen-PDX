@@ -151,70 +151,77 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin-left: 20px;
 }
 
-/* line 18, ../scss/_mixins.scss */
+/* line 20, ../scss/_mixins.scss */
 .master-column {
   margin: 0 auto;
   padding: 0 20px;
   width: 940px;
 }
 
-/* line 25, ../scss/_mixins.scss */
+/* line 26, ../scss/_mixins.scss */
+.master-column.fluid {
+  min-width: 460px;
+  max-width: 940px;
+  width: auto;
+}
+
+/* line 33, ../scss/_mixins.scss */
 .span1 {
   width: 60px;
 }
 
-/* line 25, ../scss/_mixins.scss */
-.span2 {
+/* line 33, ../scss/_mixins.scss */
+.span2, .timeline .event header .countdown .bar {
   width: 140px;
 }
 
-/* line 25, ../scss/_mixins.scss */
+/* line 33, ../scss/_mixins.scss */
 .span3, .intro h3.am,
 .intro h3.pm {
   width: 220px;
 }
 
-/* line 25, ../scss/_mixins.scss */
+/* line 33, ../scss/_mixins.scss */
 .span4 {
   width: 300px;
 }
 
-/* line 25, ../scss/_mixins.scss */
+/* line 33, ../scss/_mixins.scss */
 .span5 {
   width: 380px;
 }
 
-/* line 25, ../scss/_mixins.scss */
+/* line 33, ../scss/_mixins.scss */
 .span6 {
   width: 460px;
 }
 
-/* line 25, ../scss/_mixins.scss */
+/* line 33, ../scss/_mixins.scss */
 .span7 {
   width: 540px;
 }
 
-/* line 25, ../scss/_mixins.scss */
+/* line 33, ../scss/_mixins.scss */
 .span8 {
   width: 620px;
 }
 
-/* line 25, ../scss/_mixins.scss */
+/* line 33, ../scss/_mixins.scss */
 .span9 {
   width: 700px;
 }
 
-/* line 25, ../scss/_mixins.scss */
+/* line 33, ../scss/_mixins.scss */
 .span10 {
   width: 780px;
 }
 
-/* line 25, ../scss/_mixins.scss */
+/* line 33, ../scss/_mixins.scss */
 .span11 {
   width: 860px;
 }
 
-/* line 25, ../scss/_mixins.scss */
+/* line 33, ../scss/_mixins.scss */
 .span12 {
   width: 940px;
 }
@@ -253,11 +260,11 @@ GLOBAL
 ----------------------------------------------------
 */
 /* line 33, ../scss/global.scss */
-.clearfix, .logo-row, header.global, .intro, .sponsors {
+.clearfix, .logo-row, header.global, .intro, .timeline, .timeline .event, .timeline .event header .countdown, .sponsors {
   *zoom: 1;
 }
 /* line 38, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.clearfix:after, .logo-row:after, header.global:after, .intro:after, .sponsors:after {
+.clearfix:after, .logo-row:after, header.global:after, .intro:after, .timeline:after, .timeline .event:after, .timeline .event header .countdown:after, .sponsors:after {
   content: "";
   display: table;
   clear: both;
@@ -394,18 +401,162 @@ header.global .logo-row em {
   float: right;
   margin-left: 40px;
 }
+@media only screen and (max-width: 940px) {
+  /* line 144, ../scss/global.scss */
+  .intro h3.am,
+  .intro h3.pm {
+    display: none;
+  }
+}
 
 /*
 ----------------------------------------------------
 TIMELINE
 ----------------------------------------------------
 */
-/* line 149, ../scss/global.scss */
+/* line 156, ../scss/global.scss */
 .timeline {
   background: url("/images/background/crosshatch.gif") 50% 50% repeat;
   border-bottom: 1px solid #d7d7d7;
   border-top: 1px solid #d7d7d7;
   padding: 55px 0;
+}
+/* line 166, ../scss/global.scss */
+.timeline .event + .event {
+  margin-top: 50px;
+}
+/* line 170, ../scss/global.scss */
+.timeline .event header {
+  background-position: 165px 2px;
+  background-repeat: no-repeat;
+  margin-bottom: 50px;
+}
+/* line 175, ../scss/global.scss */
+.timeline .event header time {
+  font-family: "Open Sans Condensed", Arial, sans-serif;
+  font-size: 2em;
+  display: block;
+  line-height: 1.4em;
+  margin-bottom: 1.1em;
+}
+/* line 182, ../scss/global.scss */
+.timeline .event header time .relative {
+  display: block;
+  font-size: 0.9em;
+  font-style: italic;
+}
+/* line 192, ../scss/global.scss */
+.timeline .event header .countdown h5 {
+  float: right;
+}
+/* line 196, ../scss/global.scss */
+.timeline .event header .countdown .bar {
+  height: 14px;
+  position: relative;
+}
+/* line 202, ../scss/global.scss */
+.timeline .event header .countdown .bar .tray,
+.timeline .event header .countdown .bar .fill {
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  -ms-border-radius: 14px;
+  -o-border-radius: 14px;
+  border-radius: 14px;
+  border: 1px solid #d7d7d7;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+/* line 211, ../scss/global.scss */
+.timeline .event header .countdown .bar .tray {
+  background-color: #f0f0f0;
+  width: 100%;
+  z-index: 10;
+}
+/* line 217, ../scss/global.scss */
+.timeline .event header .countdown .bar .fill {
+  background-color: #fff;
+  z-index: 20;
+}
+/* line 226, ../scss/global.scss */
+.timeline .event.am header {
+  background-image: url("/images/global/logo-am.png");
+}
+/* line 227, ../scss/global.scss */
+.timeline .event.pm header {
+  background-image: url("/images/global/logo-pm.png");
+}
+/* line 229, ../scss/global.scss */
+.timeline .event h2 {
+  font-size: 1.8em;
+  line-height: 1.1em;
+  margin: 0.8em 0;
+}
+/* line 235, ../scss/global.scss */
+.timeline .event p {
+  line-height: 2em;
+  margin: 1em 0;
+}
+/* line 239, ../scss/global.scss */
+.timeline .event p a {
+  font-weight: bold;
+}
+/* line 244, ../scss/global.scss */
+.timeline .event .bio-thumb {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  float: left;
+  margin: 0.5em 20px 0.5em 0;
+}
+/* line 250, ../scss/global.scss */
+.timeline .event .action {
+  margin-top: 50px;
+}
+/* line 254, ../scss/global.scss */
+.timeline .event .host {
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+/* line 260, ../scss/global.scss */
+.timeline .event a.rsvp,
+.timeline .event a.rsvp:hover {
+  -webkit-transition: background-color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -moz-transition: background-color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  -o-transition: background-color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: background-color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+/* line 264, ../scss/global.scss */
+.timeline .event a.rsvp {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  color: #fff;
+  display: block;
+  font-size: 1.5em;
+  line-height: 60px;
+  text-align: center;
+}
+/* line 274, ../scss/global.scss */
+.timeline .event.am a.rsvp {
+  background-color: #fcb040;
+}
+/* line 275, ../scss/global.scss */
+.timeline .event.am a.rsvp:hover {
+  background-color: #ec8e04;
+}
+/* line 279, ../scss/global.scss */
+.timeline .event.pm a.rsvp {
+  background-color: #25aae1;
+}
+/* line 280, ../scss/global.scss */
+.timeline .event.pm a.rsvp:hover {
+  background-color: #167aa3;
 }
 
 /*
@@ -413,22 +564,26 @@ TIMELINE
 SPONSORS
 ----------------------------------------------------
 */
-/* line 162, ../scss/global.scss */
+/* line 291, ../scss/global.scss */
 .sponsors {
   border-bottom: 1px solid #d7d7d7;
   padding: 86px 0 76px;
 }
-/* line 167, ../scss/global.scss */
+/* line 296, ../scss/global.scss */
 .sponsors h4 {
   font-style: italic;
   font-weight: bold;
   margin-bottom: 1.8em;
 }
-/* line 173, ../scss/global.scss */
+/* line 302, ../scss/global.scss */
 .sponsors h5 {
   margin-bottom: 20px;
 }
-/* line 177, ../scss/global.scss */
+/* line 305, ../scss/global.scss */
+.sponsors h5 a {
+  display: block;
+}
+/* line 310, ../scss/global.scss */
 .sponsors .instrument {
   text-indent: -119988px;
   overflow: hidden;
@@ -439,7 +594,7 @@ SPONSORS
   width: 144px;
   height: 21px;
 }
-/* line 181, ../scss/global.scss */
+/* line 314, ../scss/global.scss */
 .sponsors .scribble-tone {
   text-indent: -119988px;
   overflow: hidden;
@@ -450,7 +605,7 @@ SPONSORS
   width: 122px;
   height: 23px;
 }
-/* line 185, ../scss/global.scss */
+/* line 318, ../scss/global.scss */
 .sponsors p {
   line-height: 1.5em;
 }
@@ -460,15 +615,15 @@ SPONSORS
 FOOTER
 ----------------------------------------------------
 */
-/* line 196, ../scss/global.scss */
+/* line 329, ../scss/global.scss */
 footer.global {
   padding: 35px 0;
 }
-/* line 199, ../scss/global.scss */
+/* line 332, ../scss/global.scss */
 footer.global .logo-row {
   margin-bottom: 50px;
 }
-/* line 203, ../scss/global.scss */
+/* line 336, ../scss/global.scss */
 footer.global .credits {
   font-size: 0.9em;
   text-align: center;

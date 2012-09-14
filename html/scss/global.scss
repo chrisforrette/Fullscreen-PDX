@@ -138,6 +138,13 @@ header.global {
         float: right;
         margin-left: $gutter-width * 2;
     }
+    
+    @include respond-below($max-column-width) {
+        h3.am,
+        h3.pm {
+            display: none;
+        }
+    }
 }
 
 /*
@@ -147,10 +154,132 @@ TIMELINE
 */
 
 .timeline {
+    @extend .clearfix;
     background: url('/images/background/crosshatch.gif') 50% 50% repeat;
     border-bottom: 1px solid $light-grey;
     border-top: 1px solid $light-grey;
     padding: 55px 0;
+    
+    .event {
+        @extend .clearfix;
+        
+        & + .event {
+            margin-top: 50px;
+        }
+        
+        header {
+            background-position: 165px 2px;
+            background-repeat: no-repeat;
+            margin-bottom: 50px;
+            
+            time {
+                font-family: $open-sans-condensed;
+                font-size: 2em;
+                display: block;
+                line-height: 1.4em;
+                margin-bottom: 1.1em;
+                
+                .relative {
+                    display: block;
+                    font-size: 0.9em;
+                    font-style: italic;
+                }
+            }
+            
+            .countdown {
+                @extend .clearfix;
+                
+                h5 {
+                    float: right;
+                }
+                
+                .bar {
+                    @extend .span2;
+                    height: 14px;
+                    position: relative;
+                    
+                    .tray,
+                    .fill {
+                        @include border-radius(14px);
+                        border: 1px solid $light-grey;
+                        height: 100%;
+                        left: 0;
+                        position: absolute;
+                        top: 0;
+                    }
+                    
+                    .tray {
+                        background-color: #f0f0f0;
+                        width: 100%;
+                        z-index: 10;
+                    }
+                    
+                    .fill {
+                        background-color: #fff;
+                        z-index: 20;
+                    }
+                    
+                }
+            }
+        }
+        
+        &.am header { background-image: url('/images/global/logo-am.png'); }
+        &.pm header { background-image: url('/images/global/logo-pm.png'); }
+        
+        h2 {
+            font-size: 1.8em;
+            line-height: 1.1em;
+            margin: 0.8em 0;
+        }
+        
+        p {
+            line-height: 2em;
+            margin: 1em 0;
+            
+            a {
+                font-weight: bold;
+            }
+        }
+        
+        .bio-thumb {
+            @include border-radius(2px);
+            float: left;
+            margin: 0.5em $gutter-width 0.5em 0;
+        }
+        
+        .action {
+            margin-top: 50px;
+        }
+        
+        .host {
+            font-weight: bold;
+            margin: 0.5em 0;
+        }
+        
+        a.rsvp,
+        a.rsvp:hover {
+            @include single-transition(background-color);
+        }
+        
+        a.rsvp {
+            @include border-radius(2px);
+            color: #fff;
+            display: block;
+            font-size: 1.5em;
+            line-height: 60px;
+            text-align: center;
+        }
+        
+        &.am {
+            a.rsvp { background-color: $yellow; }
+            a.rsvp:hover { background-color: darken($yellow, 15%); }
+        }
+        
+        &.pm {
+            a.rsvp { background-color: $blue; }
+            a.rsvp:hover { background-color: darken($blue, 15%); }
+        }
+    }
 }
 
 /*
@@ -172,6 +301,10 @@ SPONSORS
     
     h5 {
         margin-bottom: 20px;
+        
+        a {
+            display: block;
+        }
     }
     
     .instrument {

@@ -15,10 +15,18 @@
         margin-left: $gutter-width;
     }
     
+    $max-column-width: ($column-width * $num-columns) + ($gutter-width * ($num-columns - 1));
+    
     .master-column {
         margin: 0 auto;
         padding: 0 $gutter-width;
-        width: ($column-width * $num-columns) + ($gutter-width * ($num-columns - 1));
+        width: $max-column-width;
+    }
+    
+    .master-column.fluid {
+        min-width: 460px;
+        max-width: $max-column-width;
+        width: auto;
     }
     
     @for $i from 1 through $num-columns {
