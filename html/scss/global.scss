@@ -107,7 +107,7 @@ header.global {
     h3.pm {
         // 218 x 215
         @extend .span3;
-        @include border-radius(2px);
+        @include border-radius(3px);
         background-position: 50% 40px;
         background-repeat: no-repeat;
         border: 1px solid $lightest-grey;
@@ -261,7 +261,7 @@ TIMELINE
         }
         
         .bio-thumb {
-            @include border-radius(2px);
+            @include border-radius(3px);
             float: left;
             margin: 0.5em $gutter-width 0.5em 0;
         }
@@ -281,7 +281,7 @@ TIMELINE
         }
         
         a.rsvp {
-            @include border-radius(2px);
+            @include border-radius(3px);
             color: #fff;
             display: block;
             font-size: 1.5em;
@@ -316,16 +316,21 @@ TIMELINE
         }
         
         .posts {
-            min-width: 460px;
-            overflow: hidden;
+            min-width: 700px;
+            overflow-x: auto;
+            
+            .wrapper {
+                white-space: nowrap;
+            }
             
             li {
                 @include single-transition(opacity);
-                @include border-radius(2px);
+                @include border-radius(3px);
                 background-color: #fff;
                 display: inline-block;
                 height: 384px;
                 padding: 12px;
+                white-space: normal;
                 width: 308px;
                 
                 &.off {
