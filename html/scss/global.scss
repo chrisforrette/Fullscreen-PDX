@@ -93,6 +93,20 @@ header.global {
     }
 }
 
+@include keyframes(bouncy) {
+    0% {
+        @include transform(scale(1, 1) rotate(0deg));
+    }
+    
+    75% {
+        @include transform(scale(0.85, 0.85) rotate(10deg));
+    }
+    
+    100% {
+        @include transform(scale(1, 1) rotate(0deg));
+    }
+}
+
 .intro {
     @extend .clearfix;
     text-align: center;
@@ -113,10 +127,10 @@ header.global {
         border: 1px solid $lightest-grey;
         font-size: 1.5em;
         font-weight: bold;
-        height: 80px;
+        height: 140px;
         margin-bottom: 0.85em;
         margin-top: 15px;
-        padding: 116px 34px 20px;
+        padding: 40px 34px 20px;
         width: 150px;
         
         small {
@@ -125,16 +139,25 @@ header.global {
             font-weight: normal;
             padding-top: 0.8em;
         }
+        
+        .icon {
+            display: block;
+            margin: 0 auto 20px;
+        }
+        
+        &:hover .icon {
+            @include animation(bouncy 500ms 1);
+            @include transform-style(preserve-3d);
+            @include animation-timing-function($default-transition-function);
+        }
     }
     
     h3.am {
-        background-image: url('/images/global/logo-am.png');
         float: left;
         margin-right: $gutter-width * 2;
     }
     
     h3.pm {
-        background-image: url('/images/global/logo-pm.png');
         float: right;
         margin-left: $gutter-width * 2;
     }
