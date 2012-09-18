@@ -93,6 +93,17 @@ header.global {
     }
 }
 
+@include respond-below($respond-cutoff) {
+    .global {
+        .next-event,
+        .twitter {
+            display: none;
+        }
+    }
+}
+
+// Intro
+
 @include keyframes(bouncy) {
     0% {
         @include transform(scale(1, 1) rotate(0deg));
@@ -117,11 +128,12 @@ header.global {
         font-family: $open-sans-condensed;
     }
     
-    h3.am,
-    h3.pm {
+    a.am,
+    a.pm {
         // 218 x 215
         @extend .span3;
         @include border-radius(3px);
+        @include transition(border-color 500ms $default-transition-function);
         background-position: 50% 40px;
         background-repeat: no-repeat;
         border: 1px solid $lightest-grey;
@@ -145,26 +157,31 @@ header.global {
             margin: 0 auto 20px;
         }
         
-        &:hover .icon {
-            @include animation(bouncy 500ms 1);
-            @include transform-style(preserve-3d);
-            @include animation-timing-function($default-transition-function);
+        &:hover {
+            border-color: $grey;
+            color: $grey;
+            
+            .icon {
+                @include animation(bouncy 500ms 1);
+                @include transform-style(preserve-3d);
+                @include animation-timing-function($default-transition-function);
+            }
         }
     }
     
-    h3.am {
+    a.am {
         float: left;
         margin-right: $gutter-width * 2;
     }
     
-    h3.pm {
+    a.pm {
         float: right;
         margin-left: $gutter-width * 2;
     }
     
-    @include respond-below($max-column-width) {
-        h3.am,
-        h3.pm {
+    @include respond-below($respond-cutoff) {
+        a.am,
+        a.pm {
             display: none;
         }
     }
@@ -181,17 +198,7 @@ TIMELINE
     background: url('/images/background/crosshatch.gif') 50% 50% repeat;
     border-bottom: 1px solid $light-grey;
     border-top: 1px solid $light-grey;
-    min-width: $max-column-width;
-    padding: 55px 20px;
-    
-    > .inner-wrapper {
-        @extend .clearfix;
-        margin-left: 50%;
-        
-        > .inner {
-            margin-left: -1 * ($max-column-width / 2);
-        }
-    }
+    padding: 0 $body-pad;
 }
     
 // Event/latest headers
@@ -251,7 +258,6 @@ TIMELINE
 }
 
 .mCSB_horizontal.mCustomScrollBox {
-    
     .mCSB_container {
         margin-top: 51px;
     }
@@ -261,24 +267,30 @@ TIMELINE
         top: 0;
     
         .mCSB_draggerContainer {
-            @extend .span8;
+            width: $max-column-width;
         }
     
         .mCSB_draggerRail {
-            width: 618px;
+            width: $max-column-width - 2;
         }
     }
 }
 
 // Event
 
+.events {
+    padding: 0;
+}
+
 .event {
     @extend .clearfix;
+    @extend .col;
+    @extend .span5;
+    
+    padding: 50px 0;
     
     & + .event {
-        border-top: 1px solid $light-grey;
-        margin-top: 25px;
-        padding-top: 25px;
+        margin-left: $max-column-width - (column-width(5) * 2);
     }
     
     header {
@@ -290,7 +302,7 @@ TIMELINE
             @extend .clearfix;
             
             .bar {
-                @extend .span2;
+                margin-right: 100px;
             }
             
             h5 {
@@ -344,6 +356,7 @@ TIMELINE
         font-size: 1.5em;
         line-height: 60px;
         text-align: center;
+        width: 75%;
     }
     
     &.am {
@@ -356,18 +369,46 @@ TIMELINE
         a.rsvp:hover { background-color: darken($blue, 15%); }
     }
 }
-    
+
+@include respond-below($respond-cutoff) {
+    .event {
+        float: none;
+        width: auto;
+        
+        header {
+            background-position: 0 2px;
+            
+            time {
+                padding-left: 70px;
+            }
+        }
+        
+        & + .event {
+            margin-left: 0;
+            padding-top: 25px;
+        }
+        
+        a.rsvp {
+            width: auto;
+        }
+    }
+}
+
 // Latest
 
 .latest {
-    margin-left: ($column-width * 4) + ($gutter-width * 4);
+    
+    > .inner-wrapper {
+        @extend .clearfix;
+        margin-left: 50%;
+        
+        > .inner {
+            margin-left: -1 * ($max-column-width / 2);
+        }
+    }
     
     h3 {
         color: $yellow;
-    }
-    
-    .bar {
-        @extend .span8;
     }
     
     .twitter {
@@ -443,6 +484,18 @@ TIMELINE
     }
 }
 
+@include respond-below($respond-cutoff) {
+    .latest {
+        > .inner-wrapper {
+            margin-left: 0%;
+        
+            > .inner {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
 /*
 ----------------------------------------------------
 SPONSORS
@@ -478,6 +531,22 @@ SPONSORS
     
     p {
         line-height: 1.5em;
+    }
+}
+
+@include respond-below($respond-cutoff) {
+    .sponsors {
+        padding: 50px 0;
+        
+        .col {
+            float: none;
+            margin-left: 0;
+            width: auto;
+        
+            & + .col {
+                margin-top: $gutter-width * 2;
+            }
+        }
     }
 }
 

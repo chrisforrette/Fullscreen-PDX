@@ -25,8 +25,10 @@
     
     .master-column {
         margin: 0 auto;
-        padding: 0 $gutter-width;
-        width: column-width($num-columns);
+        padding: 0 $body-pad;
+//        width: column-width($num-columns);
+        min-width: 460px;
+        max-width: column-width($num-columns);
     }
     
     .master-column.fluid {

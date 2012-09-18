@@ -13,7 +13,9 @@ $default-transition-duration: 250ms;
 $num-columns: 12;
 $column-width: 60px;
 $gutter-width: 20px;
+$body-pad: $gutter-width * 2;
 $max-column-width: ($column-width * $num-columns) + ($gutter-width * ($num-columns - 1));
+$respond-cutoff: $max-column-width + ($body-pad * 2);
 
 @include generate-grid($num-columns, $column-width, $gutter-width);
 
