@@ -171,7 +171,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 33, ../scss/_mixins.scss */
-.span2, .timeline .event header .countdown .bar {
+.span2, .event header .countdown .bar {
   width: 140px;
 }
 
@@ -202,7 +202,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 33, ../scss/_mixins.scss */
-.span8 {
+.span8, .mCSB_horizontal.mCustomScrollBox .mCSB_scrollTools .mCSB_draggerContainer, .latest .bar {
   width: 620px;
 }
 
@@ -260,11 +260,11 @@ GLOBAL
 ----------------------------------------------------
 */
 /* line 33, ../scss/global.scss */
-.clearfix, .logo-row, header.global, .intro, .timeline, .timeline > .inner-wrapper, .timeline .event, .timeline .event header .countdown, .sponsors {
+.clearfix, .logo-row, header.global, .intro, .timeline, .timeline > .inner-wrapper, .event, .event header .countdown, .sponsors {
   *zoom: 1;
 }
 /* line 38, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.clearfix:after, .logo-row:after, header.global:after, .intro:after, .timeline:after, .timeline > .inner-wrapper:after, .timeline .event:after, .timeline .event header .countdown:after, .sponsors:after {
+.clearfix:after, .logo-row:after, header.global:after, .intro:after, .timeline:after, .timeline > .inner-wrapper:after, .event:after, .event header .countdown:after, .sponsors:after {
   content: "";
   display: table;
   clear: both;
@@ -419,105 +419,141 @@ TIMELINE
   background: url("/images/background/crosshatch.gif") 50% 50% repeat;
   border-bottom: 1px solid #d7d7d7;
   border-top: 1px solid #d7d7d7;
-  padding: 55px 0;
+  min-width: 940px;
+  padding: 55px 20px;
 }
-/* line 163, ../scss/global.scss */
+/* line 164, ../scss/global.scss */
 .timeline > .inner-wrapper {
   margin-left: 50%;
 }
-/* line 167, ../scss/global.scss */
+/* line 168, ../scss/global.scss */
 .timeline > .inner-wrapper > .inner {
   margin-left: -470px;
 }
-/* line 176, ../scss/global.scss */
-.timeline .event time,
-.timeline .latest h3,
-.timeline .latest h4 {
+
+/* line 178, ../scss/global.scss */
+.event time,
+.latest h3,
+.latest h4 {
   display: block;
   font-family: "Open Sans Condensed", Arial, sans-serif;
   line-height: 1.4em;
 }
-/* line 183, ../scss/global.scss */
-.timeline .event time.relative,
-.timeline .latest h3 {
+
+/* line 185, ../scss/global.scss */
+.event time.relative,
+.latest h3 {
   font-size: 1.85em;
   font-style: italic;
 }
-/* line 189, ../scss/global.scss */
-.timeline .event time.date,
-.timeline .latest h4 {
+
+/* line 191, ../scss/global.scss */
+.event time.date,
+.latest h4 {
   font-size: 2em;
   margin-bottom: 1.1em;
 }
+
 /* line 199, ../scss/global.scss */
-.timeline .event + .event {
-  margin-top: 50px;
-}
-/* line 203, ../scss/global.scss */
-.timeline .event header {
-  background-position: 165px 2px;
-  background-repeat: no-repeat;
-  margin-bottom: 50px;
-}
-/* line 211, ../scss/global.scss */
-.timeline .event header .countdown h5 {
-  float: right;
-}
-/* line 215, ../scss/global.scss */
-.timeline .event header .countdown .bar {
+.bar,
+.mCSB_horizontal .mCSB_scrollTools {
   height: 14px;
   position: relative;
 }
-/* line 221, ../scss/global.scss */
-.timeline .event header .countdown .bar .tray,
-.timeline .event header .countdown .bar .fill {
+/* line 206, ../scss/global.scss */
+.bar .tray,
+.bar .fill,
+.bar .mCSB_dragger,
+.bar .mCSB_draggerRail,
+.mCSB_horizontal .mCSB_scrollTools .tray,
+.mCSB_horizontal .mCSB_scrollTools .fill,
+.mCSB_horizontal .mCSB_scrollTools .mCSB_dragger,
+.mCSB_horizontal .mCSB_scrollTools .mCSB_draggerRail {
   -webkit-border-radius: 14px;
   -moz-border-radius: 14px;
   -ms-border-radius: 14px;
   -o-border-radius: 14px;
   border-radius: 14px;
   border: 1px solid #d7d7d7;
-  height: 100%;
+  height: 12px;
   left: 0;
   position: absolute;
   top: 0;
 }
-/* line 230, ../scss/global.scss */
-.timeline .event header .countdown .bar .tray {
+/* line 216, ../scss/global.scss */
+.bar .tray,
+.bar .mCSB_draggerRail,
+.mCSB_horizontal .mCSB_scrollTools .tray,
+.mCSB_horizontal .mCSB_scrollTools .mCSB_draggerRail {
   background-color: #f0f0f0;
+  margin: 0;
   width: 100%;
   z-index: 10;
 }
-/* line 236, ../scss/global.scss */
-.timeline .event header .countdown .bar .fill {
+/* line 224, ../scss/global.scss */
+.bar .fill,
+.bar .mCSB_dragger,
+.mCSB_horizontal .mCSB_scrollTools .fill,
+.mCSB_horizontal .mCSB_scrollTools .mCSB_dragger {
   background-color: #fff;
   z-index: 20;
 }
-/* line 245, ../scss/global.scss */
-.timeline .event.am header {
+
+/* line 232, ../scss/global.scss */
+.mCSB_horizontal.mCustomScrollBox .mCSB_container {
+  margin-top: 51px;
+}
+/* line 236, ../scss/global.scss */
+.mCSB_horizontal.mCustomScrollBox .mCSB_scrollTools {
+  position: absolute;
+  top: 0;
+}
+/* line 244, ../scss/global.scss */
+.mCSB_horizontal.mCustomScrollBox .mCSB_scrollTools .mCSB_draggerRail {
+  width: 618px;
+}
+
+/* line 255, ../scss/global.scss */
+.event + .event {
+  border-top: 1px solid #d7d7d7;
+  margin-top: 25px;
+  padding-top: 25px;
+}
+/* line 261, ../scss/global.scss */
+.event header {
+  background-position: 165px 2px;
+  background-repeat: no-repeat;
+  margin-bottom: 50px;
+}
+/* line 273, ../scss/global.scss */
+.event header .countdown h5 {
+  float: right;
+}
+/* line 279, ../scss/global.scss */
+.event.am header {
   background-image: url("/images/global/logo-am.png");
 }
-/* line 246, ../scss/global.scss */
-.timeline .event.pm header {
+/* line 280, ../scss/global.scss */
+.event.pm header {
   background-image: url("/images/global/logo-pm.png");
 }
-/* line 248, ../scss/global.scss */
-.timeline .event h2 {
+/* line 282, ../scss/global.scss */
+.event h2 {
   font-size: 1.8em;
   line-height: 1.1em;
   margin: 0.8em 0;
 }
-/* line 254, ../scss/global.scss */
-.timeline .event p {
+/* line 288, ../scss/global.scss */
+.event p {
   line-height: 2em;
   margin: 1em 0;
 }
-/* line 258, ../scss/global.scss */
-.timeline .event p a {
+/* line 292, ../scss/global.scss */
+.event p a {
   font-weight: bold;
 }
-/* line 263, ../scss/global.scss */
-.timeline .event .bio-thumb {
+/* line 297, ../scss/global.scss */
+.event .bio-thumb {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -526,25 +562,25 @@ TIMELINE
   float: left;
   margin: 0.5em 20px 0.5em 0;
 }
-/* line 269, ../scss/global.scss */
-.timeline .event .action {
+/* line 303, ../scss/global.scss */
+.event .action {
   margin-top: 50px;
 }
-/* line 273, ../scss/global.scss */
-.timeline .event .host {
+/* line 307, ../scss/global.scss */
+.event .host {
   font-weight: bold;
   margin: 0.5em 0;
 }
-/* line 279, ../scss/global.scss */
-.timeline .event a.rsvp,
-.timeline .event a.rsvp:hover {
+/* line 313, ../scss/global.scss */
+.event a.rsvp,
+.event a.rsvp:hover {
   -webkit-transition: background-color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -moz-transition: background-color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-transition: background-color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
   transition: background-color 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-/* line 283, ../scss/global.scss */
-.timeline .event a.rsvp {
+/* line 317, ../scss/global.scss */
+.event a.rsvp {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -556,47 +592,48 @@ TIMELINE
   line-height: 60px;
   text-align: center;
 }
-/* line 293, ../scss/global.scss */
-.timeline .event.am a.rsvp {
+/* line 327, ../scss/global.scss */
+.event.am a.rsvp {
   background-color: #fcb040;
 }
-/* line 294, ../scss/global.scss */
-.timeline .event.am a.rsvp:hover {
+/* line 328, ../scss/global.scss */
+.event.am a.rsvp:hover {
   background-color: #ec8e04;
 }
-/* line 298, ../scss/global.scss */
-.timeline .event.pm a.rsvp {
+/* line 332, ../scss/global.scss */
+.event.pm a.rsvp {
   background-color: #25aae1;
 }
-/* line 299, ../scss/global.scss */
-.timeline .event.pm a.rsvp:hover {
+/* line 333, ../scss/global.scss */
+.event.pm a.rsvp:hover {
   background-color: #167aa3;
 }
-/* line 305, ../scss/global.scss */
-.timeline .latest {
+
+/* line 339, ../scss/global.scss */
+.latest {
   margin-left: 320px;
 }
-/* line 308, ../scss/global.scss */
-.timeline .latest h3 {
+/* line 342, ../scss/global.scss */
+.latest h3 {
   color: #fcb040;
 }
-/* line 312, ../scss/global.scss */
-.timeline .latest .twitter {
+/* line 350, ../scss/global.scss */
+.latest .twitter {
   background: url("/images/global/logo-twitter.png") 100% 50% no-repeat;
   display: inline-block;
   padding-right: 40px;
 }
-/* line 318, ../scss/global.scss */
-.timeline .latest .posts {
+/* line 356, ../scss/global.scss */
+.latest .posts {
   min-width: 700px;
   overflow-x: auto;
 }
-/* line 322, ../scss/global.scss */
-.timeline .latest .posts .wrapper {
+/* line 360, ../scss/global.scss */
+.latest .posts .wrapper {
   white-space: nowrap;
 }
-/* line 326, ../scss/global.scss */
-.timeline .latest .posts li {
+/* line 364, ../scss/global.scss */
+.latest .posts li {
   -webkit-transition: opacity 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -moz-transition: opacity 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
   -o-transition: opacity 250ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -612,17 +649,18 @@ TIMELINE
   padding: 12px;
   white-space: normal;
   width: 308px;
+  /*
+  &.off {
+      opacity: 0.5;
+  }
+  */
 }
-/* line 336, ../scss/global.scss */
-.timeline .latest .posts li.off {
-  opacity: 0.5;
-}
-/* line 340, ../scss/global.scss */
-.timeline .latest .posts li + li {
+/* line 380, ../scss/global.scss */
+.latest .posts li + li {
   margin-left: 10px;
 }
-/* line 344, ../scss/global.scss */
-.timeline .latest .posts li .content {
+/* line 384, ../scss/global.scss */
+.latest .posts li .content {
   display: table;
   font-family: "Open Sans Condensed", Arial, sans-serif;
   font-size: 2em;
@@ -630,14 +668,14 @@ TIMELINE
   line-height: 1.4em;
   width: 308px;
 }
-/* line 352, ../scss/global.scss */
-.timeline .latest .posts li .content > .inner {
+/* line 392, ../scss/global.scss */
+.latest .posts li .content > .inner {
   display: table-cell;
   padding: 28px;
   vertical-align: middle;
 }
-/* line 359, ../scss/global.scss */
-.timeline .latest .posts li .time-ago {
+/* line 399, ../scss/global.scss */
+.latest .posts li .time-ago {
   color: #333333;
   font-size: 0.9em;
   font-weight: bold;
@@ -651,26 +689,26 @@ TIMELINE
 SPONSORS
 ----------------------------------------------------
 */
-/* line 378, ../scss/global.scss */
+/* line 417, ../scss/global.scss */
 .sponsors {
   border-bottom: 1px solid #d7d7d7;
   padding: 86px 0 76px;
 }
-/* line 383, ../scss/global.scss */
+/* line 422, ../scss/global.scss */
 .sponsors h4 {
   font-style: italic;
   font-weight: bold;
   margin-bottom: 1.8em;
 }
-/* line 389, ../scss/global.scss */
+/* line 428, ../scss/global.scss */
 .sponsors h5 {
   margin-bottom: 20px;
 }
-/* line 392, ../scss/global.scss */
+/* line 431, ../scss/global.scss */
 .sponsors h5 a {
   display: block;
 }
-/* line 397, ../scss/global.scss */
+/* line 436, ../scss/global.scss */
 .sponsors .instrument {
   text-indent: -119988px;
   overflow: hidden;
@@ -681,7 +719,7 @@ SPONSORS
   width: 144px;
   height: 21px;
 }
-/* line 401, ../scss/global.scss */
+/* line 440, ../scss/global.scss */
 .sponsors .scribble-tone {
   text-indent: -119988px;
   overflow: hidden;
@@ -692,7 +730,7 @@ SPONSORS
   width: 122px;
   height: 23px;
 }
-/* line 405, ../scss/global.scss */
+/* line 444, ../scss/global.scss */
 .sponsors p {
   line-height: 1.5em;
 }
@@ -702,15 +740,15 @@ SPONSORS
 FOOTER
 ----------------------------------------------------
 */
-/* line 416, ../scss/global.scss */
+/* line 455, ../scss/global.scss */
 footer.global {
   padding: 35px 0;
 }
-/* line 419, ../scss/global.scss */
+/* line 458, ../scss/global.scss */
 footer.global .logo-row {
   margin-bottom: 50px;
 }
-/* line 423, ../scss/global.scss */
+/* line 462, ../scss/global.scss */
 footer.global .credits {
   font-size: 0.9em;
   text-align: center;

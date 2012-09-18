@@ -158,7 +158,8 @@ TIMELINE
     background: url('/images/background/crosshatch.gif') 50% 50% repeat;
     border-bottom: 1px solid $light-grey;
     border-top: 1px solid $light-grey;
-    padding: 55px 0;
+    min-width: $max-column-width;
+    padding: 55px 20px;
     
     > .inner-wrapper {
         @extend .clearfix;
@@ -168,202 +169,240 @@ TIMELINE
             margin-left: -1 * ($max-column-width / 2);
         }
     }
+}
     
-    // Event/latest headers
+// Event/latest headers
+
+.event time,
+.latest h3,
+.latest h4 {
+    display: block;
+    font-family: $open-sans-condensed;
+    line-height: 1.4em;
+}
+
+.event time.relative,
+.latest h3 {
+    font-size: 1.85em;
+    font-style: italic;
+}
+
+.event time.date,
+.latest h4 {
+    font-size: 2em;
+    margin-bottom: 1.1em;
+}
+
+// (Scroll)Bar
+
+.bar,
+.mCSB_horizontal .mCSB_scrollTools {
+    height: 14px;
+    position: relative;
     
-    .event time,
-    .latest h3,
-    .latest h4 {
-        display: block;
-        font-family: $open-sans-condensed;
-        line-height: 1.4em;
+    .tray,
+    .fill,
+    .mCSB_dragger,
+    .mCSB_draggerRail {
+        @include border-radius(14px);
+        border: 1px solid $light-grey;
+        height: 12px;
+        left: 0;
+        position: absolute;
+        top: 0;
     }
     
-    .event time.relative,
-    .latest h3 {
-        font-size: 1.85em;
-        font-style: italic;
+    .tray,
+    .mCSB_draggerRail {
+        background-color: #f0f0f0;
+        margin: 0;
+        width: 100%;
+        z-index: 10;
     }
     
-    .event time.date,
-    .latest h4 {
-        font-size: 2em;
-        margin-bottom: 1.1em;
+    .fill,
+    .mCSB_dragger {
+        background-color: #fff;
+        z-index: 20;
+    }
+}
+
+.mCSB_horizontal.mCustomScrollBox {
+    
+    .mCSB_container {
+        margin-top: 51px;
     }
     
-    // Event
+    .mCSB_scrollTools {
+        position: absolute;
+        top: 0;
     
-    .event {
-        @extend .clearfix;
-        
-        & + .event {
-            margin-top: 50px;
+        .mCSB_draggerContainer {
+            @extend .span8;
         }
+    
+        .mCSB_draggerRail {
+            width: 618px;
+        }
+    }
+}
+
+// Event
+
+.event {
+    @extend .clearfix;
+    
+    & + .event {
+        border-top: 1px solid $light-grey;
+        margin-top: 25px;
+        padding-top: 25px;
+    }
+    
+    header {
+        background-position: 165px 2px;
+        background-repeat: no-repeat;
+        margin-bottom: 50px;
         
-        header {
-            background-position: 165px 2px;
-            background-repeat: no-repeat;
-            margin-bottom: 50px;
+        .countdown {
+            @extend .clearfix;
             
-            .countdown {
-                @extend .clearfix;
-                
-                h5 {
-                    float: right;
-                }
-                
-                .bar {
-                    @extend .span2;
-                    height: 14px;
-                    position: relative;
-                    
-                    .tray,
-                    .fill {
-                        @include border-radius(14px);
-                        border: 1px solid $light-grey;
-                        height: 100%;
-                        left: 0;
-                        position: absolute;
-                        top: 0;
-                    }
-                    
-                    .tray {
-                        background-color: #f0f0f0;
-                        width: 100%;
-                        z-index: 10;
-                    }
-                    
-                    .fill {
-                        background-color: #fff;
-                        z-index: 20;
-                    }
-                    
-                }
+            .bar {
+                @extend .span2;
+            }
+            
+            h5 {
+                float: right;
             }
         }
+    }
+    
+    &.am header { background-image: url('/images/global/logo-am.png'); }
+    &.pm header { background-image: url('/images/global/logo-pm.png'); }
+    
+    h2 {
+        font-size: 1.8em;
+        line-height: 1.1em;
+        margin: 0.8em 0;
+    }
+    
+    p {
+        line-height: 2em;
+        margin: 1em 0;
         
-        &.am header { background-image: url('/images/global/logo-am.png'); }
-        &.pm header { background-image: url('/images/global/logo-pm.png'); }
-        
-        h2 {
-            font-size: 1.8em;
-            line-height: 1.1em;
-            margin: 0.8em 0;
-        }
-        
-        p {
-            line-height: 2em;
-            margin: 1em 0;
-            
-            a {
-                font-weight: bold;
-            }
-        }
-        
-        .bio-thumb {
-            @include border-radius(3px);
-            float: left;
-            margin: 0.5em $gutter-width 0.5em 0;
-        }
-        
-        .action {
-            margin-top: 50px;
-        }
-        
-        .host {
+        a {
             font-weight: bold;
-            margin: 0.5em 0;
-        }
-        
-        a.rsvp,
-        a.rsvp:hover {
-            @include single-transition(background-color);
-        }
-        
-        a.rsvp {
-            @include border-radius(3px);
-            color: #fff;
-            display: block;
-            font-size: 1.5em;
-            line-height: 60px;
-            text-align: center;
-        }
-        
-        &.am {
-            a.rsvp { background-color: $yellow; }
-            a.rsvp:hover { background-color: darken($yellow, 15%); }
-        }
-        
-        &.pm {
-            a.rsvp { background-color: $blue; }
-            a.rsvp:hover { background-color: darken($blue, 15%); }
         }
     }
     
-    // Latest
+    .bio-thumb {
+        @include border-radius(3px);
+        float: left;
+        margin: 0.5em $gutter-width 0.5em 0;
+    }
     
-    .latest {
-        margin-left: ($column-width * 4) + ($gutter-width * 4);
+    .action {
+        margin-top: 50px;
+    }
+    
+    .host {
+        font-weight: bold;
+        margin: 0.5em 0;
+    }
+    
+    a.rsvp,
+    a.rsvp:hover {
+        @include single-transition(background-color);
+    }
+    
+    a.rsvp {
+        @include border-radius(3px);
+        color: #fff;
+        display: block;
+        font-size: 1.5em;
+        line-height: 60px;
+        text-align: center;
+    }
+    
+    &.am {
+        a.rsvp { background-color: $yellow; }
+        a.rsvp:hover { background-color: darken($yellow, 15%); }
+    }
+    
+    &.pm {
+        a.rsvp { background-color: $blue; }
+        a.rsvp:hover { background-color: darken($blue, 15%); }
+    }
+}
+    
+// Latest
+
+.latest {
+    margin-left: ($column-width * 4) + ($gutter-width * 4);
+    
+    h3 {
+        color: $yellow;
+    }
+    
+    .bar {
+        @extend .span8;
+    }
+    
+    .twitter {
+        background: url('/images/global/logo-twitter.png') 100% 50% no-repeat;
+        display: inline-block;
+        padding-right: 40px;
+    }
+    
+    .posts {
+        min-width: 700px;
+        overflow-x: auto;
         
-        h3 {
-            color: $yellow;
+        .wrapper {
+            white-space: nowrap;
         }
         
-        .twitter {
-            background: url('/images/global/logo-twitter.png') 100% 50% no-repeat;
+        li {
+            @include single-transition(opacity);
+            @include border-radius(3px);
+            background-color: #fff;
             display: inline-block;
-            padding-right: 40px;
-        }
-        
-        .posts {
-            min-width: 700px;
-            overflow-x: auto;
+            height: 384px;
+            padding: 12px;
+            white-space: normal;
+            width: 308px;
             
-            .wrapper {
-                white-space: nowrap;
+            /*
+            &.off {
+                opacity: 0.5;
+            }
+            */
+            
+            & + li {
+                margin-left: 10px;
             }
             
-            li {
-                @include single-transition(opacity);
-                @include border-radius(3px);
-                background-color: #fff;
-                display: inline-block;
-                height: 384px;
-                padding: 12px;
-                white-space: normal;
+            .content {
+                display: table;
+                font-family: $open-sans-condensed;
+                font-size: 2em;
+                height: 308px;
+                line-height: 1.4em;
                 width: 308px;
                 
-                &.off {
-                    opacity: 0.5;
+                > .inner {
+                    display: table-cell;
+                    padding: 28px;
+                    vertical-align: middle;
                 }
-                
-                & + li {
-                    margin-left: 10px;
-                }
-                
-                .content {
-                    display: table;
-                    font-family: $open-sans-condensed;
-                    font-size: 2em;
-                    height: 308px;
-                    line-height: 1.4em;
-                    width: 308px;
-                    
-                    > .inner {
-                        display: table-cell;
-                        padding: 28px;
-                        vertical-align: middle;
-                    }
-                }
-                
-                .time-ago {
-                    color: $dark-grey;
-                    font-size: 0.9em;
-                    font-weight: bold;
-                    line-height: 76px;
-                    text-transform: uppercase;
-                    text-align: center;
-                }
+            }
+            
+            .time-ago {
+                color: $dark-grey;
+                font-size: 0.9em;
+                font-weight: bold;
+                line-height: 76px;
+                text-transform: uppercase;
+                text-align: center;
             }
         }
     }
