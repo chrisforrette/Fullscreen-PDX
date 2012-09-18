@@ -661,7 +661,7 @@ TIMELINE
 }
 /* line 296, ../scss/global.scss */
 .event header {
-  background-position: 165px 2px;
+  background-position: 65% 0;
   background-repeat: no-repeat;
   margin-bottom: 50px;
 }
@@ -762,7 +762,7 @@ TIMELINE
   }
   /* line 378, ../scss/global.scss */
   .event header {
-    background-position: 0 2px;
+    background-position: 0 0;
   }
   /* line 381, ../scss/global.scss */
   .event header time {
