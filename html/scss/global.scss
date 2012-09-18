@@ -396,6 +396,18 @@ TIMELINE
                 }
             }
             
+            &.image .content {
+                background-color: #000;
+                
+                > .inner {
+                    padding: 0;
+                }
+                
+                img {
+                    width: 100%;
+                }
+            }
+            
             .time-ago {
                 color: $dark-grey;
                 font-size: 0.9em;

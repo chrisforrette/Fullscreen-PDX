@@ -1,5 +1,11 @@
 @import 'compass/reset';
 
+// Return column width for specified span
+
+@function column-width($num-columns) {
+    @return ($column-width * $num-columns) + ($gutter-width * ($num-columns - 1))
+}
+
 // Create grid
 @mixin generate-grid($num-columns, $column-width, $gutter-width) {
     .row,
@@ -20,17 +26,17 @@
     .master-column {
         margin: 0 auto;
         padding: 0 $gutter-width;
-        width: $max-column-width;
+        width: column-width($num-columns);
     }
     
     .master-column.fluid {
         min-width: 460px;
-        max-width: $max-column-width;
+        max-width: column-width($num-columns);
         width: auto;
     }
     
     @for $i from 1 through $num-columns {
-        .span#{$i} { width: ($column-width * $i) + ($gutter-width * ($i - 1)); }
+        .span#{$i} { width: column-width($i); }
     }
 }
 

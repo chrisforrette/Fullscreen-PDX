@@ -128,7 +128,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 6, ../scss/_mixins.scss */
+/* line 12, ../scss/_mixins.scss */
 .row,
 .master-column {
   *zoom: 1;
@@ -141,87 +141,87 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   clear: both;
 }
 
-/* line 10, ../scss/_mixins.scss */
+/* line 16, ../scss/_mixins.scss */
 .col {
   float: left;
 }
 
-/* line 14, ../scss/_mixins.scss */
+/* line 20, ../scss/_mixins.scss */
 .col + .col {
   margin-left: 20px;
 }
 
-/* line 20, ../scss/_mixins.scss */
+/* line 26, ../scss/_mixins.scss */
 .master-column {
   margin: 0 auto;
   padding: 0 20px;
   width: 940px;
 }
 
-/* line 26, ../scss/_mixins.scss */
+/* line 32, ../scss/_mixins.scss */
 .master-column.fluid {
   min-width: 460px;
   max-width: 940px;
   width: auto;
 }
 
-/* line 33, ../scss/_mixins.scss */
+/* line 39, ../scss/_mixins.scss */
 .span1 {
   width: 60px;
 }
 
-/* line 33, ../scss/_mixins.scss */
+/* line 39, ../scss/_mixins.scss */
 .span2, .event header .countdown .bar {
   width: 140px;
 }
 
-/* line 33, ../scss/_mixins.scss */
+/* line 39, ../scss/_mixins.scss */
 .span3, .intro h3.am,
 .intro h3.pm {
   width: 220px;
 }
 
-/* line 33, ../scss/_mixins.scss */
+/* line 39, ../scss/_mixins.scss */
 .span4 {
   width: 300px;
 }
 
-/* line 33, ../scss/_mixins.scss */
+/* line 39, ../scss/_mixins.scss */
 .span5 {
   width: 380px;
 }
 
-/* line 33, ../scss/_mixins.scss */
+/* line 39, ../scss/_mixins.scss */
 .span6 {
   width: 460px;
 }
 
-/* line 33, ../scss/_mixins.scss */
+/* line 39, ../scss/_mixins.scss */
 .span7 {
   width: 540px;
 }
 
-/* line 33, ../scss/_mixins.scss */
+/* line 39, ../scss/_mixins.scss */
 .span8, .mCSB_horizontal.mCustomScrollBox .mCSB_scrollTools .mCSB_draggerContainer, .latest .bar {
   width: 620px;
 }
 
-/* line 33, ../scss/_mixins.scss */
+/* line 39, ../scss/_mixins.scss */
 .span9 {
   width: 700px;
 }
 
-/* line 33, ../scss/_mixins.scss */
+/* line 39, ../scss/_mixins.scss */
 .span10 {
   width: 780px;
 }
 
-/* line 33, ../scss/_mixins.scss */
+/* line 39, ../scss/_mixins.scss */
 .span11 {
   width: 860px;
 }
 
-/* line 33, ../scss/_mixins.scss */
+/* line 39, ../scss/_mixins.scss */
 .span12 {
   width: 940px;
 }
@@ -675,6 +675,18 @@ TIMELINE
   vertical-align: middle;
 }
 /* line 399, ../scss/global.scss */
+.latest .posts li.image .content {
+  background-color: #000;
+}
+/* line 402, ../scss/global.scss */
+.latest .posts li.image .content > .inner {
+  padding: 0;
+}
+/* line 406, ../scss/global.scss */
+.latest .posts li.image .content img {
+  width: 100%;
+}
+/* line 411, ../scss/global.scss */
 .latest .posts li .time-ago {
   color: #333333;
   font-size: 0.9em;
@@ -689,26 +701,26 @@ TIMELINE
 SPONSORS
 ----------------------------------------------------
 */
-/* line 417, ../scss/global.scss */
+/* line 429, ../scss/global.scss */
 .sponsors {
   border-bottom: 1px solid #d7d7d7;
   padding: 86px 0 76px;
 }
-/* line 422, ../scss/global.scss */
+/* line 434, ../scss/global.scss */
 .sponsors h4 {
   font-style: italic;
   font-weight: bold;
   margin-bottom: 1.8em;
 }
-/* line 428, ../scss/global.scss */
+/* line 440, ../scss/global.scss */
 .sponsors h5 {
   margin-bottom: 20px;
 }
-/* line 431, ../scss/global.scss */
+/* line 443, ../scss/global.scss */
 .sponsors h5 a {
   display: block;
 }
-/* line 436, ../scss/global.scss */
+/* line 448, ../scss/global.scss */
 .sponsors .instrument {
   text-indent: -119988px;
   overflow: hidden;
@@ -719,7 +731,7 @@ SPONSORS
   width: 144px;
   height: 21px;
 }
-/* line 440, ../scss/global.scss */
+/* line 452, ../scss/global.scss */
 .sponsors .scribble-tone {
   text-indent: -119988px;
   overflow: hidden;
@@ -730,7 +742,7 @@ SPONSORS
   width: 122px;
   height: 23px;
 }
-/* line 444, ../scss/global.scss */
+/* line 456, ../scss/global.scss */
 .sponsors p {
   line-height: 1.5em;
 }
@@ -740,15 +752,15 @@ SPONSORS
 FOOTER
 ----------------------------------------------------
 */
-/* line 455, ../scss/global.scss */
+/* line 467, ../scss/global.scss */
 footer.global {
   padding: 35px 0;
 }
-/* line 458, ../scss/global.scss */
+/* line 470, ../scss/global.scss */
 footer.global .logo-row {
   margin-bottom: 50px;
 }
-/* line 462, ../scss/global.scss */
+/* line 474, ../scss/global.scss */
 footer.global .credits {
   font-size: 0.9em;
   text-align: center;
