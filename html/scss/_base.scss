@@ -16,6 +16,7 @@ $gutter-width: 20px;
 $body-pad: $gutter-width * 2;
 $max-column-width: ($column-width * $num-columns) + ($gutter-width * ($num-columns - 1));
 $respond-cutoff: $max-column-width + ($body-pad * 2);
+$section-pad: $gutter-width * 2;
 
 @include generate-grid($num-columns, $column-width, $gutter-width);
 

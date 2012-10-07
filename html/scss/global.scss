@@ -82,7 +82,6 @@ HEADER
 
 header.global {
     @extend .clearfix;
-    padding: 40px 0;
     
     .logo-row {
         margin-bottom: 56px;
@@ -90,6 +89,10 @@ header.global {
         em {
             display: block;
         }
+    }
+    
+    .master-column {
+        margin: $section-pad auto;
     }
 }
 
@@ -109,7 +112,7 @@ header.global {
         @include transform(scale(1, 1) rotate(0deg));
     }
     
-    75% {
+    70% {
         @include transform(scale(0.85, 0.85) rotate(10deg));
     }
     
@@ -201,7 +204,13 @@ TIMELINE
     padding: 0 $body-pad;
 }
     
-// Event/latest headers
+// Event/latest
+
+.events,
+.latest {
+    margin-bottom: $section-pad;
+    margin-top: $section-pad;
+}
 
 .event time,
 .latest h3,
@@ -259,7 +268,7 @@ TIMELINE
 
 .mCSB_horizontal.mCustomScrollBox {
     .mCSB_container {
-        margin-top: 51px;
+        margin: 50px 0 0;
     }
     
     .mCSB_scrollTools {
@@ -286,9 +295,7 @@ TIMELINE
     @extend .clearfix;
     @extend .col;
     @extend .span5;
-    
-    padding: 50px 0;
-    
+        
     & + .event {
         margin-left: $max-column-width - (column-width(5) * 2);
     }
@@ -505,7 +512,7 @@ SPONSORS
 .sponsors {
     @extend .clearfix;
     border-bottom: 1px solid $light-grey;
-    padding: 86px 0 76px;
+    padding: $section-pad 0;
     
     h4 {
         font-style: italic;
@@ -536,8 +543,6 @@ SPONSORS
 
 @include respond-below($respond-cutoff) {
     .sponsors {
-        padding: 50px 0;
-        
         .col {
             float: none;
             margin-left: 0;
