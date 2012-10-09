@@ -1,0 +1,575 @@
+@import 'base';
+
+/*
+----------------------------------------------------
+HTML
+----------------------------------------------------
+*/
+
+body {
+    background-color: #fff;
+    color: $grey;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.4em;
+}
+
+a {
+    @include single-transition(color);
+    color: $grey;
+    text-decoration: none;
+    
+    &:hover {
+        color: $blue;
+    }
+}
+
+/*
+----------------------------------------------------
+GLOBAL
+----------------------------------------------------
+*/
+
+.clearfix {
+    @include pie-clearfix;
+}
+
+em.am { color: $yellow; }
+em.pm { color: $blue; }
+
+/*
+----------------------------------------------------
+HEADER
+----------------------------------------------------
+*/
+
+.logo-row {
+    @extend .clearfix;
+    position: relative;
+    
+    .logo,
+    .logo-mini {
+        margin: 0 auto;
+    }
+    
+    .next-event,
+    .twitter {
+        position: absolute;
+        font-style: italic;
+        margin-top: -0.5em;
+        top: 50%;
+    }
+    
+    .next-event {
+        left: 0;
+        em {
+            font-weight: bold;
+        }
+    }
+    
+    .twitter {
+        right: 0;
+    }
+}
+
+.logo {
+    @include replace-text-with-dimensions('global/logo.png');
+}
+
+.logo-mini {
+    @include replace-text-with-dimensions('global/logo-mini.png');
+}
+
+header.global {
+    @extend .clearfix;
+    
+    .logo-row {
+        margin-bottom: 56px;
+        
+        em {
+            display: block;
+        }
+    }
+    
+    .master-column {
+        margin: $section-pad auto;
+    }
+}
+
+@include respond-below($respond-cutoff) {
+    .global {
+        .next-event,
+        .twitter {
+            display: none;
+        }
+    }
+}
+
+// Intro
+
+@include keyframes(bouncy) {
+    0% {
+        @include transform(scale(1, 1) rotate(0deg));
+    }
+    
+    70% {
+        @include transform(scale(0.85, 0.85) rotate(10deg));
+    }
+    
+    100% {
+        @include transform(scale(1, 1) rotate(0deg));
+    }
+}
+
+.intro {
+    @extend .clearfix;
+    text-align: center;
+    
+    h2 {
+        font-size: 2.85em;
+        line-height: 1.4em;
+        font-family: $open-sans-condensed;
+    }
+    
+    a.am,
+    a.pm {
+        // 218 x 215
+        @extend .span3;
+        @include border-radius(3px);
+        @include transition(border-color 500ms $default-transition-function);
+        background-position: 50% 40px;
+        background-repeat: no-repeat;
+        border: 1px solid $lightest-grey;
+        font-size: 1.5em;
+        font-weight: bold;
+        height: 140px;
+        margin-bottom: 0.85em;
+        margin-top: 15px;
+        padding: 40px 34px 20px;
+        width: 150px;
+        
+        small {
+            display: block;
+            font-size: 12px;
+            font-weight: normal;
+            padding-top: 0.8em;
+        }
+        
+        .icon {
+            display: block;
+            margin: 0 auto 20px;
+        }
+        
+        &:hover {
+            border-color: $grey;
+            color: $grey;
+            
+            .icon {
+                @include animation(bouncy 500ms 1);
+                @include transform-style(preserve-3d);
+                @include animation-timing-function($default-transition-function);
+            }
+        }
+    }
+    
+    a.am {
+        float: left;
+        margin-right: $gutter-width * 2;
+    }
+    
+    a.pm {
+        float: right;
+        margin-left: $gutter-width * 2;
+    }
+    
+    @include respond-below($respond-cutoff) {
+        a.am,
+        a.pm {
+            display: none;
+        }
+    }
+}
+
+/*
+----------------------------------------------------
+TIMELINE
+----------------------------------------------------
+*/
+
+.timeline {
+    @extend .clearfix;
+    background: url('/images/background/crosshatch.gif') 50% 50% repeat;
+    border-bottom: 1px solid $light-grey;
+    border-top: 1px solid $light-grey;
+    padding: 0 $body-pad;
+}
+    
+// Event/latest
+
+.events,
+.latest {
+    margin-bottom: $section-pad;
+    margin-top: $section-pad;
+}
+
+.event time,
+.latest h3,
+.latest h4 {
+    display: block;
+    font-family: $open-sans-condensed;
+    line-height: 1.4em;
+}
+
+.event time.relative,
+.latest h3 {
+    font-size: 1.85em;
+    font-style: italic;
+}
+
+.event time.date,
+.latest h4 {
+    font-size: 2em;
+    margin-bottom: 1.1em;
+}
+
+// (Scroll)Bar
+
+.bar,
+.mCSB_horizontal .mCSB_scrollTools {
+    height: 14px;
+    position: relative;
+    
+    .tray,
+    .fill,
+    .mCSB_dragger,
+    .mCSB_draggerRail {
+        @include border-radius(14px);
+        border: 1px solid $light-grey;
+        height: 12px;
+        left: 0;
+        position: absolute;
+        top: 0;
+    }
+    
+    .tray,
+    .mCSB_draggerRail {
+        background-color: #f0f0f0;
+        margin: 0;
+        width: 100%;
+        z-index: 10;
+    }
+    
+    .fill,
+    .mCSB_dragger {
+        background-color: #fff;
+        z-index: 20;
+    }
+}
+
+.mCSB_horizontal.mCustomScrollBox {
+    .mCSB_container {
+        margin: 50px 0 0;
+    }
+    
+    .mCSB_scrollTools {
+        position: absolute;
+        top: 0;
+    
+        .mCSB_draggerContainer {
+            width: $max-column-width;
+        }
+    
+        .mCSB_draggerRail {
+            width: $max-column-width - 2;
+        }
+    }
+}
+
+// Event
+
+.events {
+    padding: 0;
+}
+
+.event {
+    @extend .clearfix;
+    @extend .col;
+    @extend .span5;
+        
+    & + .event {
+        margin-left: $max-column-width - (column-width(5) * 2);
+    }
+    
+    header {
+        background-position: 65% 0;
+        background-repeat: no-repeat;
+        margin-bottom: 50px;
+        
+        .countdown {
+            @extend .clearfix;
+            
+            .bar {
+                margin-right: 100px;
+            }
+            
+            h5 {
+                float: right;
+            }
+        }
+    }
+    
+    &.am header { background-image: url('/images/global/logo-am.png'); }
+    &.pm header { background-image: url('/images/global/logo-pm.png'); }
+    
+    h2 {
+        font-size: 1.8em;
+        line-height: 1.1em;
+        margin: 0.8em 0;
+    }
+    
+    p {
+        line-height: 2em;
+        margin: 1em 0;
+        
+        a {
+            font-weight: bold;
+        }
+    }
+    
+    .bio-thumb {
+        @include border-radius(3px);
+        float: left;
+        margin: 0.5em $gutter-width 0.5em 0;
+    }
+    
+    .action {
+        margin-top: 50px;
+    }
+    
+    .host {
+        font-weight: bold;
+        margin: 0.5em 0;
+    }
+    
+    a.rsvp,
+    a.rsvp:hover {
+        @include single-transition(background-color);
+    }
+    
+    a.rsvp {
+        @include border-radius(3px);
+        color: #fff;
+        display: block;
+        font-size: 1.5em;
+        line-height: 60px;
+        text-align: center;
+        width: 75%;
+    }
+    
+    &.am {
+        a.rsvp { background-color: $yellow; }
+        a.rsvp:hover { background-color: darken($yellow, 15%); }
+    }
+    
+    &.pm {
+        a.rsvp { background-color: $blue; }
+        a.rsvp:hover { background-color: darken($blue, 15%); }
+    }
+}
+
+@include respond-below($respond-cutoff) {
+    .event {
+        float: none;
+        width: auto;
+        
+        header {
+            background-position: 0 0;
+            
+            time {
+                padding-left: 70px;
+            }
+        }
+        
+        & + .event {
+            margin-left: 0;
+            padding-top: 25px;
+        }
+        
+        a.rsvp {
+            width: auto;
+        }
+    }
+}
+
+// Latest
+
+.latest {
+    
+    > .inner-wrapper {
+        @extend .clearfix;
+        margin-left: 50%;
+        
+        > .inner {
+            margin-left: -1 * ($max-column-width / 2);
+        }
+    }
+    
+    h3 {
+        color: $yellow;
+    }
+    
+    .twitter {
+        background: url('/images/global/logo-twitter.png') 100% 50% no-repeat;
+        display: inline-block;
+        padding-right: 40px;
+    }
+    
+    .posts {
+        min-width: 700px;
+        overflow-x: auto;
+        
+        .wrapper {
+            white-space: nowrap;
+        }
+        
+        li {
+            @include single-transition(opacity);
+            @include border-radius(3px);
+            background-color: #fff;
+            display: inline-block;
+            height: 384px;
+            padding: 12px;
+            white-space: normal;
+            width: 308px;
+            
+            /*
+            &.off {
+                opacity: 0.5;
+            }
+            */
+            
+            & + li {
+                margin-left: 10px;
+            }
+            
+            .content {
+                display: table;
+                font-family: $open-sans-condensed;
+                font-size: 2em;
+                height: 308px;
+                line-height: 1.4em;
+                width: 308px;
+                
+                > .inner {
+                    display: table-cell;
+                    padding: 28px;
+                    vertical-align: middle;
+                }
+            }
+            
+            &.image .content {
+                background-color: #000;
+                
+                > .inner {
+                    padding: 0;
+                }
+                
+                img {
+                    width: 100%;
+                }
+            }
+            
+            .time-ago {
+                color: $dark-grey;
+                font-size: 0.9em;
+                font-weight: bold;
+                line-height: 76px;
+                text-transform: uppercase;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@include respond-below($respond-cutoff) {
+    .latest {
+        > .inner-wrapper {
+            margin-left: 0%;
+        
+            > .inner {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+/*
+----------------------------------------------------
+SPONSORS
+----------------------------------------------------
+*/
+
+.sponsors {
+    @extend .clearfix;
+    border-bottom: 1px solid $light-grey;
+    padding: $section-pad 0;
+    
+    h4 {
+        font-style: italic;
+        font-weight: bold;
+        margin-bottom: 1.8em;
+    }
+    
+    h5 {
+        margin-bottom: 20px;
+        
+        a {
+            display: block;
+        }
+    }
+    
+    .instrument {
+        @include replace-text-with-dimensions('global/logo-instrument.png');
+    }
+    
+    .scribble-tone {
+        @include replace-text-with-dimensions('global/logo-scribble-tone.gif');
+    }
+    
+    p {
+        line-height: 1.5em;
+    }
+}
+
+@include respond-below($respond-cutoff) {
+    .sponsors {
+        .col {
+            float: none;
+            margin-left: 0;
+            width: auto;
+        
+            & + .col {
+                margin-top: $gutter-width * 2;
+            }
+        }
+    }
+}
+
+/*
+----------------------------------------------------
+FOOTER
+----------------------------------------------------
+*/
+
+footer.global {
+    padding: 35px 0;
+    
+    .logo-row {
+        margin-bottom: 50px;
+    }
+    
+    .credits {
+        font-size: 0.9em;
+        text-align: center;
+    }
+}

@@ -1,0 +1,77 @@
+@import 'compass/reset';
+
+// Return column width for specified span
+
+@function column-width($num-columns) {
+    @return ($column-width * $num-columns) + ($gutter-width * ($num-columns - 1))
+}
+
+// Create grid
+@mixin generate-grid($num-columns, $column-width, $gutter-width) {
+    .row,
+    .master-column {
+        @include pie-clearfix;
+    }
+    
+    .col {
+        float: left;
+    }
+    
+    .col + .col {
+        margin-left: $gutter-width;
+    }
+    
+    $max-column-width: ($column-width * $num-columns) + ($gutter-width * ($num-columns - 1));
+    
+    .master-column {
+        margin: 0 auto;
+        padding: 0 $body-pad;
+//        width: column-width($num-columns);
+        min-width: 460px;
+        max-width: column-width($num-columns);
+    }
+    
+    .master-column.fluid {
+        min-width: 460px;
+        max-width: column-width($num-columns);
+        width: auto;
+    }
+    
+    @for $i from 1 through $num-columns {
+        .span#{$i} { width: column-width($i); }
+    }
+}
+
+// Media query wrapper by device keyword
+@mixin respond-to($media) {
+    @if $media == handhelds {
+        @media only screen and (min-width: 320px) and (max-width: 480px) { @content; }
+    }
+    @else if $media == tablet {
+        @media only screen and (min-width: 481px) and (max-width: 960px) { @content; }
+    }
+    @else if $media == desktop {
+        @media only screen and (min-width: 961px) and (max-width: 1200px) { @content; }
+    }
+    @else if $media == wide-screen {
+        @media only screen and (min-width: 1200px) { @content; }
+    }
+    @else if $media == ipad {
+        @media all and (device-width: 768px) and (device-height: 1024px) { @content; }
+    }
+}
+
+// Media query wrapperto respond below the width passed in
+@mixin respond-below($size) {
+    @media only screen and (max-width: $size) { @content; }
+}
+
+// Media query wrapper to respond above the width passed in
+@mixin respond-above($size) {
+    @media only screen and (min-width: $size) { @content; }
+}
+
+// Media query wrapper to respond between widths passed in
+@mixin respond-between($min, $max) {
+    @media only screen and (min-width: $min) and (max-width: $max) { @content; }
+}

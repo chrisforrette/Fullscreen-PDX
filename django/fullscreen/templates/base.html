@@ -1,0 +1,271 @@
+{% load thumbnail %}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Fullscreen PDX</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="author" content="Cuban Council">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+        <link rel="icon" href="/images/favicon.ico">
+        <link rel="shortcut icon" href="/images/favicon.ico">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,700italic,700,600,400|Open+Sans+Condensed:300,300italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.css" media="all">
+        <link rel="stylesheet" href="/css/global.css" media="all">
+        <script src="/js/modernizr-2.5.3.js"></script>
+        <!--
+        // Facebook Open Graph tags
+
+        <meta property="fb:admins" content="">
+        <meta property="og:site_name" content="Site Name">
+        <meta property="og:type" content="company">
+        <meta property="og:title" content="Site Name">
+        <meta property="og:url" content="http://www.site-name.com">
+        <meta property="og:image" content="http://www.site-name.com/images/globals/logo.gif">
+        -->
+    </head>
+    <body>
+
+        <header class="global">
+            <div class="master-column">
+                <div class="logo-row">
+                    <h1 class="logo">Fullscreen PDX</h1>
+                    <h3 class="next-event"><em>Next Event:</em> Fullscreen/AM with Dan Heberden</h3>
+                    <a href="#" class="twitter">@fullscreenpdx</a>
+                </div>
+                <div class="intro">
+                    <a href="#am" class="am"><img src="/images/global/logo-am.png" alt="AM" class="icon">AM <small>Developer-Oriented Speaker Series</small></a><a href="#pm" class="pm"><img src="/images/global/logo-pm.png" alt="PM" class="icon">PM <small>Casual Creative Showcase</small></a>
+                    <h2>
+                        Fullscreen PDX seeks to inspire the Portland creative community via <em class="am">Fullscreen / AM</em>,
+                        a developer-oriented speaker series; and <em class="pm">Fullscreen / PM</em>, a casual creative 
+                        show-and-tell meetup.
+                    </h2>
+                </div>
+            </div>
+        </header>
+        
+        <section class="timeline">
+            {% if am_event or pm_event %}
+            <div class="events master-column">
+                {% if pm_event %}
+                <article id="pm" class="event pm">
+                    <header>
+                        <time datetime="{{ pm_event.when|date:'c' }}" class="relative">{{ pm_event.when|date:'l' }}</time>
+                        <time datetime="{{ pm_event.when|date:'c' }}" class="date">{{ pm_event.when|date:'F dS Y, h:ia' }}</time>
+                        <div class="countdown">
+                            <h5>90 days left</h5>
+                            <div class="bar">
+                                <div class="fill" style="width: 80%"></div>
+                                <div class="tray"></div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="info">
+                        <h2>{{ pm_event.title }}</h2>
+                        <img src="/images/tmp/bio-dan-heberden.jpg" alt="Dan Heberden" class="bio-thumb">
+                        <p>
+                            Dan is an open-web fanatic and spends his days and nights working for Bocoup, helping out
+                            with <a href="#">jQuery</a>, playing dodgeball and kickball, drinking and trying to make the interwebs better. 
+                            He digs unit tests, loves work-flow and process, and has nightmares about projects that lack a 
+                            build tool.
+                        </p>
+                        <p>
+                            Hey there, here's another sentence.
+                        </p>
+                    </div>
+            
+                    <div class="action">
+                        <h4 class="host">Hosted by <a href="http://www.weareinstrument.com" target="_blank">Instrument</a></h4>
+                        <a href="#" class="rsvp">Free Registration</a>
+                    </div>
+                </article>
+                {% endif %}
+                
+                {% if am_event %}
+                <article id="am" class="event am">
+                    <header>
+                        <time datetime="{{ am_event.when|date:'c' }}" class="relative">{{ am_event.when|date:'l' }}</time>
+                        <time datetime="{{ am_event.when|date:'c' }}" class="date">{{ am_event.when|date:'F dS Y, h:ia' }}</time>
+                        <div class="countdown">
+                            <h5>90 days left</h5>
+                            <div class="bar">
+                                <div class="fill" style="width: 80%"></div>
+                                <div class="tray"></div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="info">
+                        <h2>{{ am_event.title }}</h2>
+                        {% if am_event.image %}
+                        <img src="{% thumbnail am_event.image 60x56 crop %}" alt="{{ am_event.title }}" class="bio-thumb">
+                        {% endif %}
+                        {% if am_event.description %}
+                        {{ am_event.description|linebreaks }}
+                        {% endif %}
+                    </div>
+            
+                    <div class="action">
+                        <h4 class="host">Hosted by <a href="http://www.weareinstrument.com" target="_blank">Instrument</a></h4>
+                        <a href="#" class="rsvp">Free Registration</a>
+                    </div>
+                </article>
+                {% endif %}
+            </div>
+            {% endif %}
+            
+            <!-- Tweets -->
+            
+            <section class="latest">
+                <div class="inner-wrapper">
+                    <div class="inner">
+                        <header>
+                            <h3>Latest News</h3>
+                            <h4 class="twitter"><a href="#">@fullscreenpdx</a></h4>
+                        </header>
+                        <div class="posts">
+                            <div class="wrapper">
+                                <ul>
+                                    <li class="image">
+                                        <div class="content">
+                                            <div class="inner">
+                                                <img src="/images/tmp/test.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="time-ago">45 Minutes Ago</div>
+                                    </li>
+                                    <li>
+                                        <div class="content">
+                                            <div class="inner">
+                                                Here's a tweet and such
+                                            </div>
+                                        </div>
+                                        <div class="time-ago">45 Minutes Ago</div>
+                                    </li>
+                                    <li class="off">
+                                        <div class="content">
+                                            <div class="inner">
+                                                We will show you ours if you show us yours... share something you love and shit
+                                            </div>
+                                        </div>
+                                        <div class="time-ago">45 Minutes Ago</div>
+                                    </li>
+                                    <li class="off">
+                                        <div class="content">
+                                            <div class="inner">
+                                                Here's a tweet and such
+                                            </div>
+                                        </div>
+                                        <div class="time-ago">45 Minutes Ago</div>
+                                    </li>
+                                    <li class="off">
+                                        <div class="content">
+                                            <div class="inner">
+                                                We will show you ours if you show us yours... share something you love and shit
+                                            </div>
+                                        </div>
+                                        <div class="time-ago">45 Minutes Ago</div>
+                                    </li>
+                                    <li class="off">
+                                        <div class="content">
+                                            <div class="inner">
+                                                Here's a tweet and such
+                                            </div>
+                                        </div>
+                                        <div class="time-ago">45 Minutes Ago</div>
+                                    </li>
+                                    <li class="image">
+                                        <div class="content">
+                                            <div class="inner">
+                                                <img src="/images/tmp/test.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="time-ago">45 Minutes Ago</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+        <section class="sponsors">
+            <div class="master-column">
+                <h4>Sponsored by</h4>
+                <div class="col span6">
+                    <h5><a href="http://www.weareinstrument.com" target="_blank" class="instrument">Instrument</a></h5>
+                    <p>
+                        Instrument is a digital creative agency. We are building. All the time. We are dreaming and designing, concepting and creating. 
+                        We break formulas. We craft experiences. We imagine then we develop. We make the complex simple. And that means we&rsquo;ll stop here.
+                    </p>
+                </div>
+                <div class="col span6">
+                    <h5><a href="http://www.scribbletone.com/" target="_blank" class="scribble-tone">Scribble Tone</a></h5>
+                    <p>
+                        We are a design team that focuses on branding, interactive and type projects. As problem solvers, we thrive on fun and complex challenges.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="global">
+            <div class="master-column">
+                <div class="logo-row">
+                    <h1 class="logo-mini">Fullscreen PDX</h1>
+                    <h3 class="next-event"><em>Next Event:</em> Fullscreen/AM with Dan Heberden</h3>
+                    <a href="#" class="twitter">@fullscreenpdx</a>
+                </div>
+                <p class="credits">
+                    &copy;2012 Fullscreen PDX, all rights reserved. Site design by <a href="http://nineliondesign.com/" target="_blank">Chikezie Ejiasi</a>
+                </p>
+            </div>
+        </footer>
+        
+        <script src="/js/jquery-1.8.1.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+        <script src="/js/jquery.mousewheel.min.js"></script>
+    	<script src="/js/jquery.mCustomScrollbar.js"></script>
+        <script src="/js/global.js"></script>
+
+        <!--
+        // Facebook, Twitter, and Google Plus
+
+        <div id="fb-root"></div>
+        <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+        <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        <script type="text/javascript">
+            // Google Plus
+            (function() {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+            })();
+        </script>
+        -->
+
+        <!--
+        // Google Analytics
+
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-XXXXXX-XX']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        -->
+
+    </body>
+</html>
